@@ -1,7 +1,7 @@
 #hasan cakar
 
 #function for encoding user input password
-def encoder(password):
+def encode(password):
     new_pass = []
     if len(password) == 8 and password.isdigit():
         for digit in password:
@@ -13,8 +13,15 @@ def encoder(password):
     else:
         raise ValueError
 
+
+#function for decoding encoded password from user input
+def decode(password):
+
+
 #main function that prints menu options and ask for user menu option
 def main():
+    password = ''
+    decoded = ''
     while True:
         print("""Menu
 -------------
@@ -24,15 +31,15 @@ def main():
         print()
         user_op = int(input("Please enter an option: "))
         #gets more info in order to call encoder function and stores new password
-        #include try and except for valueerror
-        if user_op == 1:
+        if user_op == 1: #menu option to encode password
             password = input("Please enter your password to encode: ")
             print("Your password has been encoded and stored!")
-            encoder(password)
             print()
-        #elif user_op == 2: where decoding user op will go
-
-        elif user_op == 3:
+        elif user_op == 2:#menu option to get the original password
+            decoded = decode(password)
+            print(f"The encoded password is {password}, and the original password is {decoded}.")
+            print()
+        elif user_op == 3: #menu option to quit menu
             break
 
 #runs main function
