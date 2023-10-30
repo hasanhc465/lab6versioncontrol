@@ -16,7 +16,15 @@ def encode(password):
 
 #function for decoding encoded password from user input
 def decode(password):
-
+    ### COP3502C | LEO JO | OCT.25.2023 ###
+    de_pass = ""
+    for i in password:
+        i = (int(i) + 10) - 3
+        if i > 10:
+            i -= 10
+        i = str(i)
+        de_pass += i
+    return de_pass
 
 #main function that prints menu options and ask for user menu option
 def main():
@@ -32,7 +40,7 @@ def main():
         user_op = int(input("Please enter an option: "))
         #gets more info in order to call encoder function and stores new password
         if user_op == 1: #menu option to encode password
-            password = input("Please enter your password to encode: ")
+            password = encode(input("Please enter your password to encode: "))
             print("Your password has been encoded and stored!")
             print()
         elif user_op == 2:#menu option to get the original password
