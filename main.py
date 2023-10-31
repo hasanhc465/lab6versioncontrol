@@ -7,6 +7,8 @@ def encode(password):
         for digit in password:
             digit = int(digit)
             digit += 3
+            if digit > 9:
+                digit -= 10
             digit = str(digit)
             new_pass.append(digit)
         return ''.join(new_pass)
@@ -20,7 +22,7 @@ def decode(password):
     de_pass = ""
     for i in password:
         i = (int(i) + 10) - 3
-        if i > 10:
+        if i > 9:
             i -= 10
         i = str(i)
         de_pass += i
